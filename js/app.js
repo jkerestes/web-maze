@@ -103,6 +103,81 @@ class MazeGame {
 
         // Ensure exit is accessible
         this.maze[size - 1][size - 1] = 0;
+
+        // Verify exit is reachable, if not, carve a path
+        if (!this.isExitReachable()) {
+            this.carvePathToExit();
+        }
+    }
+
+    isExitReachable() {
+        // Use BFS to check if exit is reachable from start
+        const size = this.mazeSize;
+        const visited = Array(size).fill(null).map(() => Array(size).fill(false));
+        const queue = [[0, 0]];
+        visited[0][0] = true;
+
+        const directions = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+
+        while (queue.length > 0) {
+            const [x, y] = queue.shift();
+
+            if (x === this.exit.x && y === this.exit.y) {
+                return true; // Exit is reachable!
+            }
+
+            for (const [dx, dy] of directions) {
+                const newX = x + dx;
+                const newY = y + dy;
+
+                if (newX >= 0 && newX < size && newY >= 0 && newY < size &&
+                    !visited[newY][newX] && this.maze[newY][newX] === 0) {
+                    visited[newY][newX] = true;
+                    queue.push([newX, newY]);
+                }
+            }
+        }
+
+        return false; // Exit not reachable
+    }
+
+    carvePathToExit() {
+        // Carve a simple path from start to exit using BFS to find shortest path
+        const size = this.mazeSize;
+        const visited = Array(size).fill(null).map(() => Array(size).fill(false));
+        const parent = Array(size).fill(null).map(() => Array(size).fill(null));
+        const queue = [[0, 0]];
+        visited[0][0] = true;
+
+        const directions = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+
+        // BFS to find any path (ignoring walls temporarily)
+        while (queue.length > 0) {
+            const [x, y] = queue.shift();
+
+            if (x === this.exit.x && y === this.exit.y) {
+                // Backtrack and carve path
+                let current = [x, y];
+                while (current !== null) {
+                    const [cx, cy] = current;
+                    this.maze[cy][cx] = 0; // Carve path
+                    current = parent[cy][cx];
+                }
+                return;
+            }
+
+            for (const [dx, dy] of directions) {
+                const newX = x + dx;
+                const newY = y + dy;
+
+                if (newX >= 0 && newX < size && newY >= 0 && newY < size &&
+                    !visited[newY][newX]) {
+                    visited[newY][newX] = true;
+                    parent[newY][newX] = [x, y];
+                    queue.push([newX, newY]);
+                }
+            }
+        }
     }
 
     renderMaze() {
