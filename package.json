@@ -1,0 +1,26 @@
+{
+  "name": "web-maze",
+  "version": "1.0.0",
+  "description": "A web-based maze game built with HTML, CSS, and JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkerestes/web-maze.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jkerestes/web-maze/issues"
+  },
+  "homepage": "https://github.com/jkerestes/web-maze#readme",
+  "devDependencies": {
+    "jest": "^30.3.0"
+  }
+}

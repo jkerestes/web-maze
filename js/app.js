@@ -284,7 +284,14 @@ class MazeGame {
 }
 
 // Initialize game when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    const game = new MazeGame();
-    console.log('Web Maze game initialized!');
-});
+if (typeof document !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+        const game = new MazeGame();
+        console.log('Web Maze game initialized!');
+    });
+}
+
+// Export for testing (Node.js environment)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = MazeGame;
+}
