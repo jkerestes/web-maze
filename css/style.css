@@ -63,44 +63,30 @@ h1 {
     color: #e74c3c;
 }
 
-#maze-container {
-    margin: 2rem 0;
-    display: inline-block;
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.maze {
-    display: grid;
-    gap: 0;
-    border: 3px solid #333;
-}
-
-.cell {
-    width: 30px;
-    height: 30px;
-    background: white;
-    border: 1px solid #ddd;
+#game-view {
     position: relative;
+    margin: 2rem auto;
+    display: inline-block;
 }
 
-.cell.wall {
-    background: #2c3e50;
+#maze-canvas {
+    border: 4px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    background: #1a1a1a;
+    display: block;
 }
 
-.cell.path {
-    background: white;
-}
-
-.cell.player {
-    background: #3498db;
-    border-radius: 50%;
-}
-
-.cell.exit {
-    background: #27ae60;
+#minimap {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 150px;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .instructions {

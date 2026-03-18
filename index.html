@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Maze</title>
+    <title>Web Maze - Sprocker Adventure</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Web Maze</h1>
+        <h1>🐕 Sprocker's Maze Adventure</h1>
         <div class="game-stats">
             <div class="stat">
                 <span class="label">Level:</span>
@@ -20,14 +20,15 @@
             </div>
         </div>
         <div id="message" class="message"></div>
-        <div id="maze-container">
-            <!-- Maze will be generated here -->
+        <div id="game-view">
+            <canvas id="maze-canvas" width="800" height="600"></canvas>
+            <canvas id="minimap" width="150" height="150"></canvas>
         </div>
         <div class="instructions">
-            <p>Use arrow keys to navigate. Reach the green exit before time runs out!</p>
+            <p>↑↓ Move Forward/Back • ←→ Turn Left/Right • Find the green exit!</p>
             <button id="start-btn">Start Game</button>
         </div>
     </div>
-    <script src="js/app.js"></script>
+    <script src="js/app-3d.js"></script>
 </body>
 </html>
