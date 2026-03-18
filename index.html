@@ -8,10 +8,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Web Maze</h1>
-        <p>Your maze adventure starts here!</p>
+        <h1>Web Maze</h1>
+        <div class="game-stats">
+            <div class="stat">
+                <span class="label">Level:</span>
+                <span id="level">1</span>
+            </div>
+            <div class="stat">
+                <span class="label">Time:</span>
+                <span id="timer">30</span>s
+            </div>
+        </div>
+        <div id="message" class="message"></div>
         <div id="maze-container">
             <!-- Maze will be generated here -->
+        </div>
+        <div class="instructions">
+            <p>Use arrow keys to navigate. Reach the green exit before time runs out!</p>
+            <button id="start-btn">Start Game</button>
         </div>
     </div>
     <script src="js/app.js"></script>

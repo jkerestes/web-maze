@@ -26,12 +26,109 @@ h1 {
     margin-bottom: 1rem;
 }
 
-p {
+.game-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 1rem;
+}
+
+.stat {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.label {
     color: #666;
-    margin-bottom: 2rem;
+    font-weight: normal;
+}
+
+#timer {
+    color: #e74c3c;
+}
+
+.message {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    min-height: 30px;
+}
+
+.message.win {
+    color: #27ae60;
+}
+
+.message.lose {
+    color: #e74c3c;
 }
 
 #maze-container {
-    margin-top: 2rem;
-    min-height: 200px;
+    margin: 2rem 0;
+    display: inline-block;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.maze {
+    display: grid;
+    gap: 0;
+    border: 3px solid #333;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+.cell.wall {
+    background: #2c3e50;
+}
+
+.cell.path {
+    background: white;
+}
+
+.cell.player {
+    background: #3498db;
+    border-radius: 50%;
+}
+
+.cell.exit {
+    background: #27ae60;
+}
+
+.instructions {
+    color: #666;
+    margin-top: 1rem;
+}
+
+.instructions p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+#start-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#start-btn:hover {
+    background: #5568d3;
+}
+
+#start-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
 }
